@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a class="active" href="javascript:void(0)">Home</a></li>
+  <li><a href="{% url 'main:results' %}">Results</a></li>
+</ul>
+
+{% endblock %}
+
+{% block content %}
+
+<h3 id="map">Django API NASA - Home</h3>
+
+<div class="container">
+
+	<form id="apiform" method="POST" action="/">
+    {% csrf_token %}
+
+    	<label for="username">Selecciona una categoria</label>
+
+    	<select name="cat" id="cat">
+    		<option selected value="">Select one</option>
+		  	<option value="apod">IMAGEN ASTRONOMICA DEL DIA (APOD)</option>
+		  	<option value="mars">FOTOGRAFIAS DE LOS ROVERS EN MARTE</option>
+		  	<option value="epic">Earth Polychromatic Imaging Camera (EPIC)</option>
+			<option value="neows">OBJETOS CERCANOS A LA TIERRA (NEOWS)</option>
+
+		</select>
+	   
+
+	   <button type="submit">ENVIAR</button>
+	</form>
+</div>
+
+{% endblock %}
+
+{% block extend_footer %}
+
+{% endblock %}
